@@ -28,34 +28,35 @@
 
 <?php
 
-    
-
     if(isset($_POST['modifier']))
     {
         $requeteupdate = "UPDATE utilisateurs SET login='".$_POST['login']."', prenom='".$_POST['prenom']."' , nom='".$_POST['nom']."' , password='".$_POST['password']."' WHERE login = '".$_SESSION['login']."'";
-        
+
         if($resultat['login'] != $_POST['login'])
         {
             mysqli_query($connexion,$requeteupdate);
             $_SESSION['login'] = $_POST['login'];
+            header('Location: profil.php');
         }
         elseif($resultat['prenom'] != $_POST['prenom'])
         {
             mysqli_query($connexion,$requeteupdate);
+            header('Location: profil.php');
         }
         elseif($resultat['nom'] != $_POST['nom'])
         {
             mysqli_query($connexion,$requeteupdate);
+            header('Location: profil.php');
         }
         elseif($resultat['password'] != $_POST['password'])
         {
             mysqli_query($connexion,$requeteupdate);
+            header('Location: profil.php');
         }
         else
         {
             echo " Impossible de changer d'informations ";
         }
-        header('Location: profil.php');
     }
 
 ?>
