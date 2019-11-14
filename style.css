@@ -1,0 +1,242 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url(img/bg.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#ctopbar {
+    background-color: #262626;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#ctopbar2 {
+    background-color: #262626;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#clogin {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    border-right: 1px solid white;
+}
+
+#clogin:hover {
+    background-color: #424242;
+}
+
+#cinscription {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    border-left: 1px solid white;
+}
+
+#cinscription:hover {
+    background-color: #424242;
+}
+
+#cadmin {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+#cadmin a {
+    color: #ffca13;
+}
+
+#cadmin:hover {
+    background-color: #424242;
+}
+
+#star {
+    margin-right: 10px;
+}
+
+#cdeconnexion {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+}
+
+#cdeconnexion input[type=submit] {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #262626;
+    color: white;
+    font-family: sans-serif;
+    border: none;
+    font-size: 16px;
+}
+
+#cdeconnexion input[type=submit]:hover {
+    background-color: #424242;
+    cursor: pointer;
+}
+
+form {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#clogo {
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#logotitle {
+    font-size: 100px;
+    font-family: sans-serif;
+    color: white;
+}
+
+#cnavbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar {
+    height: 60px;
+    width: 80%;
+    background-color: #262626;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#cacceuil {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    border-right: 1px solid white;
+}
+
+#cacceuil:hover {
+    background-color: #424242;
+}
+
+#cacceuil2 {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+}
+
+#cacceuil2:hover {
+    background-color: #424242;
+}
+
+#cmonprofil {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    border-left: 1px solid white;
+}
+
+#cmonprofil:hover {
+    background-color: #424242;
+}
+
+#ccontainermid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#containermid {
+    height: 1000px;
+    width: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+#cconnexion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cform {
+    width: 40%;
+    background-color: #262626;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+#titleformco {
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#formconnexion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+form {
+    text-align: center;
+}
+
+#formconnexion input {
+    margin-top: 30px;
+}
+
+#formconnexion input[type=submit] {
+    background-color: #262626;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    font-size: 16px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#formconnexion input[type=submit]:hover {
+    transform: scale(1.1);
+}
