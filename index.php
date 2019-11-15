@@ -51,7 +51,7 @@
         <section id="cnavbar">
             <section id="navbar">
                 <section id="cacceuil2">
-                    <a href="index.php">Acceuil</a>
+                    <a href="index.php">Accueil</a>
                 </section>
             </section>
         </section>
@@ -79,7 +79,7 @@
                 <section id="cnavbar">
                     <section id="navbar">
                         <section id="cacceuil">
-                            <a href="index.php">Acceuil</a>
+                            <a href="index.php">Accueil</a>
                         </section>
                         <section id="cmonprofil">
                             <a href="profil.php">Mon profil</a>
@@ -115,7 +115,7 @@
                 <section id="cnavbar">
                     <section id="navbar">
                         <section id="cacceuil">
-                            <a href="index.php">Acceuil</a>
+                            <a href="index.php">Accueil</a>
                         </section>
                         <section id="cmonprofil">
                             <a href="profil.php">Mon profil</a>
@@ -145,5 +145,8 @@
             </section>
         </section>
     </main>
+    <footer>
+        Copyright 2019 LaPlateforme_
+    </footer>
 </body>
 </html>
