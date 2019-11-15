@@ -1,8 +1,9 @@
 <?php
-    session_start();
+
     $phraseidincorrect = "";
     $phrasemerciremplir = "";
     $comptevalide = false;
+
     if ( isset($_POST['connexion']) == true && isset($_POST['login']) && isset($_POST['mdp']) ) {
         $connexion = mysqli_connect("localhost", "root", "", "moduleconnexion");
         $requete = "SELECT * FROM utilisateurs";
@@ -22,20 +23,25 @@
         else {
             $phraseidincorrect = "Identifiant ou mot de passe incorrect.";
         }
+
+        mysqli_close($connexion);
     }
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Page d'administrateurs</title>
-        <link href="style.css" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-        <?php
-        if ( isset($_SESSION['login']) == false ) {
+
 ?>
 
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Connexion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<?php
+session_start();
+
+        if ( isset($_SESSION['login']) == false ) {
+?>
     <header>
         <section id="ctopbar">
             <section id="clogin">
@@ -53,11 +59,6 @@
                 The game
             </article>
         </section>
-        <section id="cnavbar">
-            <section id="navbar">
-                <section id="cacceuil2">
-                    <a href="index.php">Accueil</a>
-                </section>
     </header>
 <?php
         }
@@ -79,19 +80,10 @@
                         The game
                     </article>
                 </section>
-                <section id="cnavbar">
-                    <section id="navbar">
-                        <section id="cacceuil">
-                            <a href="index.php">Accueil</a>
-                        </section>
-                        <section id="cmonprofil">
-                            <a href="profil.php">Mon profil</a>
-                        </section>
-                    </section>
-                </section>
             </header>
 <?php
         }
+
         elseif ( isset($_SESSION['login']) == true  && $_SESSION['login'] == "admin" ) {
 ?>
             <header>
@@ -114,75 +106,59 @@
                         The game
                     </article>
                 </section>
-                <section id="cnavbar">
-                    <section id="navbar">
-                        <section id="cacceuil">
-                            <a href="index.php">Accueil</a>
-                        </section>
-                        <section id="cmonprofil">
-                            <a href="profil.php">Mon profil</a>
-                        </section>
-                    </section>
-                </section>
             </header>
 <?php
         }
-
- if ( isset($_SESSION['login']) == true )
-{
-    $connexion = mysqli_connect("localhost", "root","", "moduleconnexion");
-    $requete = "SELECT * FROM utilisateurs WHERE login='".$_SESSION['login']."'";
-    $query = mysqli_query($connexion, $requete);
-    $resultat = mysqli_fetch_assoc($query);
-}
 ?>
+
     <main>
-        <section id="ccontainermid">
-            <section id="containermidprofil">
-<?php
-
-$connexion = mysqli_connect("localhost", "root","", "moduleconnexion");
-$requete = "SELECT * FROM utilisateurs";
-$query = mysqli_query($connexion, $requete);
-$resultat = mysqli_fetch_all($query);
-$compte = false;
-
-if($_SESSION['login'] == "admin")
-{
-echo "<table>
-<thead>
-    <tr>
-        <th>ID</th>
-        <th>Login</th>
-        <th>Prénom</th>
-        <th>Nom</th>
-        <th>Mot de passe</th>
-    <tr>
-</thead>
-<tbody>";
-
-                foreach($resultat as $cle => $valeur)
-                {
-                    echo "<tr>";
-
-                    foreach($valeur as $id => $value)
-                    {
-                        echo "<td>".$value."</td>";
+    <?php
+    if ( !isset($_SESSION['login']) ) {
+    ?>
+        <section id="cconnexion">
+            <section id="cform">
+                <article id="titleformco">
+                    CONNEXION
+                </article>
+                <section id="formconnexion">
+                    <form method="post" action="connexion.php">
+                        <input type="text" placeholder="Identifiant" name="login" ><br />
+                        <input type="password" placeholder="Mot de passe" name="mdp" ><br />
+                        <input type="submit" value="Se connecter" name="connexion" required>
+                    </form>
+                </section>
+                <section id="phraseincorrecte">
+                <?php
+                    if ( $comptevalide == false && isset($_POST['connexion']) && $_POST['login'] != NULL && $_POST['mdp'] != NULL ) {
+                        echo $phraseidincorrect;
                     }
-                    echo "</tr>";
-                }
-                      
-echo "</tbody></table>";
+                    elseif ( isset($_POST['connexion']) == true && ($_POST['login'] == NULL || $_POST['mdp'] == NULL )) {
+                ?>
+                    Merci de remplir tous les champs.
+                <?php
+                    }
+                ?>
+                </section>
+            </section>
+        </section>
+    <?php
+    }
 
-}
-else
-{
-    echo "Vous n'avez pas accés à cette page";
-}
-mysqli_close($connexion);
-            ?>
+    elseif ( isset($_SESSION['login']) ) {
+    ?>
+        <section id="cconnexion">
+            <section id="cform">
+                <article id="titleformco">
+                    ERREUR
+                </article>
+                <section id="erreurco">
+                    Vous êtes déjà connecté !
+                </section>
             </section>
-            </section>
-            </main>
-        </body>
+        </section>
+    <?php
+    }
+    ?>
+    </main>
+</body>
 </html>

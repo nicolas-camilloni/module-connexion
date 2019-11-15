@@ -1,0 +1,345 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-image: url(img/bg.png);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#ctopbar {
+    background-color: #262626;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#ctopbar2 {
+    background-color: #262626;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#clogin {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    border-right: 1px solid white;
+}
+
+#clogin:hover {
+    background-color: #424242;
+}
+
+#cinscription {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    border-left: 1px solid white;
+}
+
+#cinscription:hover {
+    background-color: #424242;
+}
+
+#cadmin {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+#cadmin a {
+    color: #ffca13;
+}
+
+#cadmin:hover {
+    background-color: #424242;
+}
+
+#star {
+    margin-right: 10px;
+}
+
+#cdeconnexion {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+}
+
+#cdeconnexion input[type=submit] {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #262626;
+    color: white;
+    font-family: sans-serif;
+    border: none;
+    font-size: 16px;
+}
+
+#cdeconnexion input[type=submit]:hover {
+    background-color: #424242;
+    cursor: pointer;
+}
+
+form {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#clogo {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logotitle {
+    font-size: 100px;
+    font-family: sans-serif;
+    color: white;
+}
+#logosubtitle {
+    font-size: 40px;
+    font-family: sans-serif;
+    color: white;
+}
+
+#cnavbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar {
+    height: 60px;
+    width: 80%;
+    background-color: #262626;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#cacceuil {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    border-right: 1px solid white;
+}
+
+#cacceuil:hover {
+    background-color: #424242;
+}
+
+#cacceuil2 {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+}
+
+#cacceuil2:hover {
+    background-color: #424242;
+}
+
+#cmonprofil {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    border-left: 1px solid white;
+}
+
+#cmonprofil:hover {
+    background-color: #424242;
+}
+
+#ccontainermid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#containermid {
+    height: 1000px;
+    width: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+#cconnexion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cform {
+    width: 35%;
+    background-color: #262626;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+#titleformco {
+    color: white;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#formconnexion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#erreurco {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: white;
+    font-family: sans-serif;
+}
+
+form {
+    text-align: center;
+}
+
+#formconnexion input {
+    margin-top: 30px;
+    text-align: center;
+}
+
+#formconnexion input[type=submit] {
+    background-color: #262626;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    font-size: 16px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#formconnexion input[type=submit]:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+#phraseincorrecte {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: sans-serif;
+}
+
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+/********************************************************************/
+
+#containermidprofil {
+    padding-top:1.5 %;
+    padding-bottom: 5%;
+    width: 80%;
+    background-color: rgb(255, 255, 255,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    min-height:400px;
+}
+
+#formprofil input[type=text],#formprofil input[type=password]{
+    border-radius: 50px 50px 50px 50px;
+    padding:10px;
+    text-align: center;
+}
+
+#formprofil input[type=submit] {
+    background-color: #262626;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    font-size: 16px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 15%;
+}
+
+#formprofil input[type=submit]:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+#formprofil label{
+    font-weight: bold;
+}
+
+h1{
+    font-size: 30px;
+}
+
+table{
+    margin-top: 5%;
+    padding:1.5%;
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+th{
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    border-collapse: collapse;
+    height: 30px;
+    width: 30px;
+}
+
+td{
+    border-right: 2px solid black;
+    border-collapse: collapse;
+    border-bottom: 0.5px solid black;
+    height: 30px;
+    text-align: center;
+}
+
