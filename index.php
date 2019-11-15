@@ -51,7 +51,7 @@
         <section id="cnavbar">
             <section id="navbar">
                 <section id="cacceuil2">
-                    <a href="index.php">Acceuil</a>
+                    <a href="index.php">Accueil</a>
                 </section>
             </section>
         </section>
@@ -79,7 +79,7 @@
                 <section id="cnavbar">
                     <section id="navbar">
                         <section id="cacceuil">
-                            <a href="index.php">Acceuil</a>
+                            <a href="index.php">Accueil</a>
                         </section>
                         <section id="cmonprofil">
                             <a href="profil.php">Mon profil</a>
@@ -129,21 +129,25 @@
     ?>
     <main>
         <section id="ccontainermid">
-            <section id="containermid">
+            <section id="containermidindex">
                 <?php
 
                 if ( isset($_SESSION['login']) == true ) {
                     $login = $resultat[0][1];
-                    echo "Bienvenue $login !";
+                    echo '<img class="logoaccueil" src="img/logo2.png">';
+                    echo '<section class="indexsection">Bienvenue '.'<span class="gras">'.$login.'</span>'.' !</section>';
                 }
 
                 if ( isset($_SESSION['login']) == false ) {
+                    echo '<img class="logoaccueil" src="img/logo.png">';
                     echo "Bienvenue le nouveau !";
                 }
-
                 ?>
             </section>
         </section>
     </main>
+    <footer>
+        Copyright 2019 LaPlateforme_
+    </footer>
 </body>
 </html>
