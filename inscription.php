@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<?php
+    <?php
 
         if ( isset($_SESSION['login']) == false ) {
+
     ?>
     <header>
         <section id="ctopbar">
@@ -104,7 +105,7 @@
                 </section>
                 <section id="phraseincorrecte">
                 <?php
-                    if ( isset($_POST['inscrire']) == true && ($_POST['login'] == NULL || $_POST['mdp'] == NULL )) {
+                    if ( isset($_POST['inscrire']) == true &&  isset($_POST['login']) && strlen($_POST['login']) == 0 || isset($_POST['mdp']) && strlen($_POST['mdp']) == 0 || isset($_POST['cmdp']) && strlen($_POST['cmdp']) == 0 || isset($_POST['nom']) && strlen($_POST['nom']) == 0 || isset($_POST['prenom']) && strlen($_POST['prenom']) == 0 ) {
                 ?>
                     Merci de remplir tous les champs.
                 <?php
@@ -132,6 +133,11 @@
     }
     ?>
     </main>
+    <footer>
+        Copyright 2019 LaPlateforme_
+    </footer>
+</body>
+</html>
 
 <?php
 if ( isset($_POST['mdp']) ) {
@@ -140,7 +146,7 @@ if ( isset($_POST['mdp']) ) {
 }
 $connexion = mysqli_connect("localhost", "root", "", "moduleconnexion");
 
-    if ( isset($_POST['inscrire']) == true &&  $_POST['mdp'] == $_POST['cmdp'] && isset($_POST['login']) ) {
+    if ( isset($_POST['inscrire']) == true &&  $_POST['mdp'] == $_POST['cmdp'] && isset($_POST['login']) && strlen($_POST['login']) != 0 && isset($_POST['mdp']) && strlen($_POST['mdp']) != 0 && isset($_POST['cmdp']) && strlen($_POST['cmdp']) != 0 && isset($_POST['nom']) && strlen($_POST['nom']) != 0 && isset($_POST['prenom']) && strlen($_POST['prenom']) != 0 ) {
         $requete2 = "SELECT * FROM utilisateurs";
         $query2 = mysqli_query($connexion, $requete2);
         $resultat = mysqli_fetch_all($query2);

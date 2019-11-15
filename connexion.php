@@ -4,7 +4,7 @@
     $phrasemerciremplir = "";
     $comptevalide = false;
 
-    if ( isset($_POST['connexion']) == true && isset($_POST['login']) && isset($_POST['mdp']) ) {
+    if ( isset($_POST['connexion']) == true && isset($_POST['login']) && strlen($_POST['login']) != 0 && isset($_POST['mdp']) && strlen($_POST['mdp']) != 0 ) {
         $connexion = mysqli_connect("localhost", "root", "", "moduleconnexion");
         $requete = "SELECT * FROM utilisateurs";
         $query = mysqli_query($connexion, $requete);
@@ -129,10 +129,10 @@ session_start();
                 </section>
                 <section id="phraseincorrecte">
                 <?php
-                    if ( $comptevalide == false && isset($_POST['connexion']) && $_POST['login'] != NULL && $_POST['mdp'] != NULL ) {
+                    if ( $comptevalide == false  && isset($_POST['login']) && strlen($_POST['login']) != 0 && isset($_POST['mdp']) && strlen($_POST['mdp']) != 0 ) {
                         echo $phraseidincorrect;
                     }
-                    elseif ( isset($_POST['connexion']) == true && ($_POST['login'] == NULL || $_POST['mdp'] == NULL )) {
+                    elseif ( isset($_POST['connexion']) == true && isset($_POST['login']) && strlen($_POST['login']) == 0 || isset($_POST['mdp']) && strlen($_POST['mdp']) == 0 ) {
                 ?>
                     Merci de remplir tous les champs.
                 <?php
@@ -160,5 +160,8 @@ session_start();
     }
     ?>
     </main>
+    <footer>
+        Copyright 2019 LaPlateforme_
+    </footer>
 </body>
 </html>
