@@ -108,14 +108,20 @@ a {
 }
 
 #clogo {
-    height: 220px;
+    height: 250px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 #logotitle {
     font-size: 100px;
+    font-family: sans-serif;
+    color: white;
+}
+#logosubtitle {
+    font-size: 40px;
     font-family: sans-serif;
     color: white;
 }
@@ -197,7 +203,7 @@ a {
 }
 
 #cform {
-    width: 40%;
+    width: 35%;
     background-color: #262626;
     border: 1px solid white;
     border-radius: 10px;
@@ -216,7 +222,17 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+}
+
+#erreurco {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: white;
+    font-family: sans-serif;
 }
 
 form {
@@ -225,6 +241,7 @@ form {
 
 #formconnexion input {
     margin-top: 30px;
+    text-align: center;
 }
 
 #formconnexion input[type=submit] {
@@ -239,4 +256,12 @@ form {
 
 #formconnexion input[type=submit]:hover {
     transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+#phraseincorrecte {
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: sans-serif;
 }

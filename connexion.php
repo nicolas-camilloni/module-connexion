@@ -1,6 +1,10 @@
 <?php
 
-    if ( isset($_POST['connexion']) == true ) {
+    $phraseidincorrect = "";
+    $phrasemerciremplir = "";
+    $comptevalide = false;
+
+    if ( isset($_POST['connexion']) == true && isset($_POST['login']) && isset($_POST['mdp']) ) {
         $connexion = mysqli_connect("localhost", "root", "", "moduleconnexion");
         $requete = "SELECT * FROM utilisateurs";
         $query = mysqli_query($connexion, $requete);
@@ -17,7 +21,7 @@
             header('Location: index.php');
         }
         else {
-            echo "Identifiant ou mot de passe incorrect.";
+            $phraseidincorrect = "Identifiant ou mot de passe incorrect.";
         }
 
         mysqli_close($connexion);
@@ -29,11 +33,12 @@
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Inscription</title>
+    <title>Connexion</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <?php
+<?php
+session_start();
 
         if ( isset($_SESSION['login']) == false ) {
 ?>
@@ -48,7 +53,10 @@
         </section>
         <section id="clogo">
             <article id="logotitle">
-                Titre
+                LaPlateforme_
+            </article>
+            <article id="logosubtitle">
+                The game
             </article>
         </section>
     </header>
@@ -60,13 +68,16 @@
                 <section id="ctopbar">
                     <section id="cdeconnexion">
                         <form method="post" action="index.php">    
-                            <input type="submit" name="deco" value="Deconnexion">
+                            <input type="submit" name="deco" value="Déconnexion">
                         </form>
                     </section>
                 </section>
                 <section id="clogo">
                     <article id="logotitle">
-                        Titre
+                        LaPlateforme_
+                    </article>
+                    <article id="logosubtitle">
+                        The game
                     </article>
                 </section>
             </header>
@@ -83,13 +94,16 @@
                     </section>
                     <section id="cdeconnexion">
                         <form method="post" action="index.php">    
-                            <input type="submit" name="deco" value="Deconnexion">
+                            <input type="submit" name="deco" value="Déconnexion">
                         </form>
                     </section>
                 </section>
                 <section id="clogo">
                     <article id="logotitle">
-                        Titre
+                        LaPlateforme_
+                    </article>
+                    <article id="logosubtitle">
+                        The game
                     </article>
                 </section>
             </header>
@@ -98,6 +112,9 @@
 ?>
 
     <main>
+    <?php
+    if ( !isset($_SESSION['login']) ) {
+    ?>
         <section id="cconnexion">
             <section id="cform">
                 <article id="titleformco">
@@ -105,13 +122,43 @@
                 </article>
                 <section id="formconnexion">
                     <form method="post" action="connexion.php">
-                        <input type="text" placeholder="Identifiant" name="login" required><br />
-                        <input type="password" placeholder="Mot de passe" name="mdp" required><br />
+                        <input type="text" placeholder="Identifiant" name="login" ><br />
+                        <input type="password" placeholder="Mot de passe" name="mdp" ><br />
                         <input type="submit" value="Se connecter" name="connexion" required>
                     </form>
                 </section>
+                <section id="phraseincorrecte">
+                <?php
+                    if ( $comptevalide == false && isset($_POST['connexion']) && $_POST['login'] != NULL && $_POST['mdp'] != NULL ) {
+                        echo $phraseidincorrect;
+                    }
+                    elseif ( isset($_POST['connexion']) == true && ($_POST['login'] == NULL || $_POST['mdp'] == NULL )) {
+                ?>
+                    Merci de remplir tous les champs.
+                <?php
+                    }
+                ?>
+                </section>
             </section>
         </section>
+    <?php
+    }
+
+    elseif ( isset($_SESSION['login']) ) {
+    ?>
+        <section id="cconnexion">
+            <section id="cform">
+                <article id="titleformco">
+                    ERREUR
+                </article>
+                <section id="erreurco">
+                    Vous êtes déjà connecté !
+                </section>
+            </section>
+        </section>
+    <?php
+    }
+    ?>
     </main>
 </body>
 </html>
