@@ -161,7 +161,9 @@ else
 }
 
 ?>
-
+    <footer>
+        Copyright 2019 LaPlateforme_
+    </footer>
 </body>
 </html>
 

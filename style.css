@@ -266,6 +266,17 @@ form {
     font-family: sans-serif;
 }
 
+footer {
+    background-color: #262626;
+    color: white;
+    font-family: sans-serif;
+    height : 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+}
+
 /********************************************************************/
 /********************************************************************/
 /********************************************************************/

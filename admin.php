@@ -184,5 +184,8 @@ mysqli_close($connexion);
             </section>
             </section>
             </main>
+    <footer>
+        Copyright 2019 LaPlateforme_
+    </footer>
         </body>
 </html>
