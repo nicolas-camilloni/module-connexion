@@ -147,6 +147,8 @@ $query = mysqli_query($connexion, $requete);
 $resultat = mysqli_fetch_all($query);
 $compte = false;
 
+if( isset($_SESSION['login']) == true )
+{
 if($_SESSION['login'] == "admin")
 {
 echo "<table>
@@ -177,7 +179,12 @@ echo "</tbody></table>";
 }
 else
 {
-    echo "Vous n'avez pas accés à cette page";
+    echo "Vous n'avez pas accès à cette page";
+}
+}
+else
+{
+    echo "Vous n'avez pas accès à cette page";
 }
 mysqli_close($connexion);
             ?>
