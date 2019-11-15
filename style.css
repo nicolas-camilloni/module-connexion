@@ -281,3 +281,92 @@ footer {
     align-items: center;
     bottom: 0;
 }
+
+#containermidprofil {
+    padding-top:1.5 %;
+    padding-bottom: 5%;
+    width: 80%;
+    background-color: rgb(255, 255, 255,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    min-height:400px;
+    margin-bottom:30px;
+}
+
+#formprofil input[type=text],#formprofil input[type=password]{
+    border-radius: 50px 50px 50px 50px;
+    padding:10px;
+    text-align: center;
+}
+
+#formprofil input[type=submit] {
+    background-color: #262626;
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    font-size: 16px;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 15%;
+}
+
+#formprofil input[type=submit]:hover {
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+}
+
+#formprofil label{
+    font-weight: bold;
+}
+
+h1{
+    font-size: 30px;
+}
+
+table{
+    margin-top: 5%;
+    padding:1.5%;
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+th{
+    border-right: 3px solid black;
+    border-bottom: 3px solid black;
+    border-collapse: collapse;
+    height: 30px;
+    width: 30px;
+}
+
+td{
+    border-right: 2px solid black;
+    border-collapse: collapse;
+    border-bottom: 0.5px solid black;
+    height: 30px;
+    text-align: center;
+}
+
+.logoaccueil{
+    width: 35%;
+    height: 40%;
+}
+
+#containermidindex{
+    min-height: 550px;
+    width: 80%;
+    background-color: rgb(255, 255, 255,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 30px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.gras{
+    font-weight: bold;
+}

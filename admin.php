@@ -1,36 +1,41 @@
 <?php
     session_start();
-
-    if ( isset($_SESSION['login']) == true ) {
+    $phraseidincorrect = "";
+    $phrasemerciremplir = "";
+    $comptevalide = false;
+    if ( isset($_POST['connexion']) == true && isset($_POST['login']) && isset($_POST['mdp']) ) {
         $connexion = mysqli_connect("localhost", "root", "", "moduleconnexion");
-        $requete = "SELECT * FROM utilisateurs WHERE login = '".$_SESSION['login']."'";
+        $requete = "SELECT * FROM utilisateurs";
         $query = mysqli_query($connexion, $requete);
         $resultat = mysqli_fetch_all($query);
-
-        mysqli_close($connexion);
+        $comptevalide = false;
+        foreach ( $resultat as $key => $value ) {
+            if ( $resultat[$key][1] == $_POST['login'] && password_verify($_POST['mdp'], $resultat[$key][4]) ) {
+                $comptevalide = true;
+            }
+        }
+        if ( $comptevalide == true ) {
+            session_start();
+            $_SESSION['login'] = $_POST['login'];
+            header('Location: index.php');
+        }
+        else {
+            $phraseidincorrect = "Identifiant ou mot de passe incorrect.";
+        }
     }
-
-    if ( isset($_POST['deco']) == true ) {
-        session_unset();
-        session_destroy();
-        header('Location: index.php');
-    }
-
-
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Page d'administrateurs</title>
+        <link href="style.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <?php
+        if ( isset($_SESSION['login']) == false ) {
 ?>
 
-<!doctype html>
-<html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <title>Acceuil</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <?php
-
-        if ( isset($_SESSION['login']) == false ) {
-    ?>
     <header>
         <section id="ctopbar">
             <section id="clogin">
@@ -53,13 +58,11 @@
                 <section id="cacceuil2">
                     <a href="index.php">Accueil</a>
                 </section>
-            </section>
-        </section>
     </header>
-    <?php
+<?php
         }
         elseif ( isset($_SESSION['login']) == true && $_SESSION['login'] != "admin" ) {
-    ?>
+?>
             <header>
                 <section id="ctopbar">
                     <section id="cdeconnexion">
@@ -87,11 +90,10 @@
                     </section>
                 </section>
             </header>
-        <?php
+<?php
         }
-
         elseif ( isset($_SESSION['login']) == true  && $_SESSION['login'] == "admin" ) {
-        ?>
+?>
             <header>
                 <section id="ctopbar2">
                     <section id="cadmin">
@@ -123,31 +125,67 @@
                     </section>
                 </section>
             </header>
-        <?php
+<?php
         }
-    
-    ?>
+
+ if ( isset($_SESSION['login']) == true )
+{
+    $connexion = mysqli_connect("localhost", "root","", "moduleconnexion");
+    $requete = "SELECT * FROM utilisateurs WHERE login='".$_SESSION['login']."'";
+    $query = mysqli_query($connexion, $requete);
+    $resultat = mysqli_fetch_assoc($query);
+}
+?>
     <main>
         <section id="ccontainermid">
-            <section id="containermidindex">
-                <?php
+            <section id="containermidprofil">
+<?php
 
-                if ( isset($_SESSION['login']) == true ) {
-                    $login = $resultat[0][1];
-                    echo '<img class="logoaccueil" src="img/logo2.png">';
-                    echo '<section class="indexsection">Bienvenue '.'<span class="gras">'.$login.'</span>'.' !</section>';
-                }
+$connexion = mysqli_connect("localhost", "root","", "moduleconnexion");
+$requete = "SELECT * FROM utilisateurs";
+$query = mysqli_query($connexion, $requete);
+$resultat = mysqli_fetch_all($query);
+$compte = false;
 
-                if ( isset($_SESSION['login']) == false ) {
-                    echo '<img class="logoaccueil" src="img/logo.png">';
-                    echo "Bienvenue le nouveau !";
+if($_SESSION['login'] == "admin")
+{
+echo "<table>
+<thead>
+    <tr>
+        <th>ID</th>
+        <th>Login</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Mot de passe</th>
+    <tr>
+</thead>
+<tbody>";
+
+                foreach($resultat as $cle => $valeur)
+                {
+                    echo "<tr>";
+
+                    foreach($valeur as $id => $value)
+                    {
+                        echo "<td>".$value."</td>";
+                    }
+                    echo "</tr>";
                 }
-                ?>
+                      
+echo "</tbody></table>";
+
+}
+else
+{
+    echo "Vous n'avez pas accés à cette page";
+}
+mysqli_close($connexion);
+            ?>
             </section>
-        </section>
-    </main>
+            </section>
+            </main>
     <footer>
         Copyright 2019 LaPlateforme_
     </footer>
-</body>
+        </body>
 </html>
