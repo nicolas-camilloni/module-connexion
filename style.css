@@ -4,6 +4,10 @@ body {
     background-image: url(img/bg.png);
     background-size: cover;
     background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 #ctopbar {
