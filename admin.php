@@ -1,28 +1,5 @@
 <?php
     session_start();
-    $phraseidincorrect = "";
-    $phrasemerciremplir = "";
-    $comptevalide = false;
-    if ( isset($_POST['connexion']) == true && isset($_POST['login']) && isset($_POST['mdp']) ) {
-        $connexion = mysqli_connect("localhost", "root", "", "moduleconnexion");
-        $requete = "SELECT * FROM utilisateurs";
-        $query = mysqli_query($connexion, $requete);
-        $resultat = mysqli_fetch_all($query);
-        $comptevalide = false;
-        foreach ( $resultat as $key => $value ) {
-            if ( $resultat[$key][1] == $_POST['login'] && password_verify($_POST['mdp'], $resultat[$key][4]) ) {
-                $comptevalide = true;
-            }
-        }
-        if ( $comptevalide == true ) {
-            session_start();
-            $_SESSION['login'] = $_POST['login'];
-            header('Location: index.php');
-        }
-        else {
-            $phraseidincorrect = "Identifiant ou mot de passe incorrect.";
-        }
-    }
 ?>
 <!DOCTYPE html>
 <html>
@@ -194,5 +171,5 @@ mysqli_close($connexion);
     <footer>
         Copyright 2019 LaPlateforme_
     </footer>
-        </body>
+</body>
 </html>

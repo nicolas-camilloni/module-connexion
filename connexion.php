@@ -122,8 +122,8 @@ session_start();
                 </article>
                 <section id="formconnexion">
                     <form method="post" action="connexion.php">
-                        <input type="text" placeholder="Identifiant" name="login" ><br />
-                        <input type="password" placeholder="Mot de passe" name="mdp" ><br />
+                        <input type="text" placeholder="Identifiant" name="login" required><br />
+                        <input type="password" placeholder="Mot de passe" name="mdp" required><br />
                         <input type="submit" value="Se connecter" name="connexion" required>
                     </form>
                 </section>

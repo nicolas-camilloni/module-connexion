@@ -1,35 +1,11 @@
 <?php
     session_start();
-    $phraseidincorrect = "";
-    $phrasemerciremplir = "";
-    $comptevalide = false;
-    if ( isset($_POST['connexion']) == true && isset($_POST['login']) && isset($_POST['mdp']) ) {
-        $connexion = mysqli_connect("localhost", "root", "", "moduleconnexion");
-        $requete = "SELECT * FROM utilisateurs";
-        $query = mysqli_query($connexion, $requete);
-        $resultat = mysqli_fetch_all($query);
-        $comptevalide = false;
-        foreach ( $resultat as $key => $value ) {
-            if ( $resultat[$key][1] == $_POST['login'] && password_verify($_POST['mdp'], $resultat[$key][4]) ) {
-                $comptevalide = true;
-            }
-        }
-        if ( $comptevalide == true ) {
-            session_start();
-            $_SESSION['login'] = $_POST['login'];
-            header('Location: index.php');
-        }
-        else {
-            $phraseidincorrect = "Identifiant ou mot de passe incorrect.";
-        }
-        mysqli_close($connexion);
-    }
 ?>
 <!doctype html>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
-    <title>Connexion</title>
+    <title>Profil</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -157,7 +133,17 @@
 
 else
 {
-    echo "Vous n'avez pas accés à cette page !";
+?>
+     <main>
+        <section id="ccontainermid">
+            <section id="containermidprofil">
+<?php
+    echo "Vous n'avez pas accès à cette page !";
+?>
+ </section>
+    </section>
+    <main>
+<?php
 }
 
 ?>
