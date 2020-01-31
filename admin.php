@@ -105,7 +105,7 @@
 <?php
         }
 
- if ( isset($_SESSION['login']) == true )
+if ( isset($_SESSION['login']) == true )
 {
     $connexion = mysqli_connect("localhost", "root","", "moduleconnexion");
     $requete = "SELECT * FROM utilisateurs WHERE login='".$_SESSION['login']."'";
