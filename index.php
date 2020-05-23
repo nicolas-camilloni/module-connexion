@@ -2,7 +2,7 @@
     session_start();
 
     if ( isset($_SESSION['login']) == true ) {
-        $connexion = mysqli_connect("localhost", "root", "", "moduleconnexion");
+        $connexion = mysqli_connect("localhost", "nicolas", "Nicoju13", "nicolas-camilloni_module-connexion");
         $requete = "SELECT * FROM utilisateurs WHERE login = '".$_SESSION['login']."'";
         $query = mysqli_query($connexion, $requete);
         $resultat = mysqli_fetch_all($query);

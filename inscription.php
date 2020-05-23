@@ -5,7 +5,8 @@
         $pwd = $_POST['mdp'];
         $pwd = password_hash( $pwd, PASSWORD_BCRYPT, array('cost' => 12, ) );
 }
-$connexion = mysqli_connect("localhost", "root", "", "moduleconnexion");
+    $connexion = mysqli_connect("localhost", "nicolas", "Nicoju13", "nicolas-camilloni_module-connexion");
+
 
     if ( isset($_POST['inscrire']) == true &&  $_POST['mdp'] == $_POST['cmdp'] && isset($_POST['login']) && strlen($_POST['login']) != 0 && isset($_POST['mdp']) && strlen($_POST['mdp']) != 0 && isset($_POST['cmdp']) && strlen($_POST['cmdp']) != 0 && isset($_POST['nom']) && strlen($_POST['nom']) != 0 && isset($_POST['prenom']) && strlen($_POST['prenom']) != 0 ) {
         $requete2 = "SELECT * FROM utilisateurs";
