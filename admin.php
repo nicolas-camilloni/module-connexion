@@ -107,8 +107,8 @@
 
 if ( isset($_SESSION['login']) == true )
 {
-    $connexion = mysqli_connect("localhost", "nicolas", "Nicoju13", "nicolas-camilloni_module-connexion");
-    $requete = "SELECT * FROM utilisateurs WHERE login='".$_SESSION['login']."'";
+    $connexion = mysqli_connect("db5000890310.hosting-data.io", "dbu594451", "S26n6j29p20m13!", "dbs781078");
+    $requete = "SELECT * FROM moduleconnexion_utilisateurs WHERE login='".$_SESSION['login']."'";
     $query = mysqli_query($connexion, $requete);
     $resultat = mysqli_fetch_assoc($query);
 }
@@ -118,8 +118,8 @@ if ( isset($_SESSION['login']) == true )
             <section id="containermidprofil">
 <?php
 
-$connexion = mysqli_connect("localhost", "nicolas", "Nicoju13", "nicolas-camilloni_module-connexion");
-$requete = "SELECT * FROM utilisateurs";
+$connexion = mysqli_connect("db5000890310.hosting-data.io", "dbu594451", "S26n6j29p20m13!", "dbs781078");
+$requete = "SELECT * FROM moduleconnexion_utilisateurs";
 $query = mysqli_query($connexion, $requete);
 $resultat = mysqli_fetch_all($query);
 $compte = false;

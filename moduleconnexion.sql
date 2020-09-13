@@ -25,11 +25,13 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateurs`
+-- Structure de la table `moduleconnexion_utilisateurs`
 --
 
-DROP TABLE IF EXISTS `utilisateurs`;
-CREATE TABLE IF NOT EXISTS `utilisateurs` (
+USE dbs781078;
+
+DROP TABLE IF EXISTS `moduleconnexion_utilisateurs`;
+CREATE TABLE IF NOT EXISTS `moduleconnexion_utilisateurs` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(255) NOT NULL,
   `prenom` varchar(255) NOT NULL,
@@ -39,10 +41,10 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 ) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `utilisateurs`
+-- Déchargement des données de la table `moduleconnexion_utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `login`, `prenom`, `nom`, `password`) VALUES
+INSERT INTO `moduleconnexion_utilisateurs` (`id`, `login`, `prenom`, `nom`, `password`) VALUES
 (11, 'coucou', 'c', 'b', '$2y$12$SM6NZL2hbQClhW8W32DN7uK6TTT/Oyk78OOwbBLqQ9GYzvSkmY1vi'),
 (12, 'admin', 'admin', 'admin', '$2y$12$FFGPi2yO9KqN69IayHkP9e2h1N/A4MuJOze9kKTeTyxE/qW8T5f02'),
 (20, 'salutmec2', 'd', 'e', '$2y$12$0EFAEB7T14PcglAJTah7I.DdVV.cldyl4OaPbSXAi9wC5Of9hOKVe'),

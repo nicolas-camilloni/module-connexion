@@ -5,8 +5,8 @@
     $comptevalide = false;
 
     if ( isset($_POST['connexion']) == true && isset($_POST['login']) && strlen($_POST['login']) != 0 && isset($_POST['mdp']) && strlen($_POST['mdp']) != 0 ) {
-        $connexion = mysqli_connect("localhost", "nicolas", "Nicoju13", "nicolas-camilloni_module-connexion");
-        $requete = "SELECT * FROM utilisateurs";
+        $connexion = mysqli_connect("db5000890310.hosting-data.io", "dbu594451", "S26n6j29p20m13!", "dbs781078");
+        $requete = "SELECT * FROM moduleconnexion_utilisateurs";
         $query = mysqli_query($connexion, $requete);
         $resultat = mysqli_fetch_all($query);
         $comptevalide = false;

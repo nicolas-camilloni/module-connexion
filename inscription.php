@@ -5,11 +5,11 @@
         $pwd = $_POST['mdp'];
         $pwd = password_hash( $pwd, PASSWORD_BCRYPT, array('cost' => 12, ) );
 }
-    $connexion = mysqli_connect("localhost", "nicolas", "Nicoju13", "nicolas-camilloni_module-connexion");
+    $connexion = mysqli_connect("db5000890310.hosting-data.io", "dbu594451", "S26n6j29p20m13!", "dbs781078");
 
 
     if ( isset($_POST['inscrire']) == true &&  $_POST['mdp'] == $_POST['cmdp'] && isset($_POST['login']) && strlen($_POST['login']) != 0 && isset($_POST['mdp']) && strlen($_POST['mdp']) != 0 && isset($_POST['cmdp']) && strlen($_POST['cmdp']) != 0 && isset($_POST['nom']) && strlen($_POST['nom']) != 0 && isset($_POST['prenom']) && strlen($_POST['prenom']) != 0 ) {
-        $requete2 = "SELECT * FROM utilisateurs";
+        $requete2 = "SELECT * FROM moduleconnexion_utilisateurs";
         $query2 = mysqli_query($connexion, $requete2);
         $resultat = mysqli_fetch_all($query2);
         foreach ( $resultat as $key => $value ) {
@@ -18,7 +18,7 @@
             }
         }
         if ( $dejainscrit == false ) {
-            $requete = "INSERT INTO utilisateurs (login, password, prenom, nom) VALUES('".$_POST['login']."', '".$pwd."', '".$_POST['prenom']."', '".$_POST['nom']."')";
+            $requete = "INSERT INTO moduleconnexion_utilisateurs (login, password, prenom, nom) VALUES('".$_POST['login']."', '".$pwd."', '".$_POST['prenom']."', '".$_POST['nom']."')";
             $query = mysqli_query($connexion, $requete);
             header('Location: connexion.php');
         }

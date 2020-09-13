@@ -107,8 +107,8 @@
 
  if ( isset($_SESSION['login']) == true )
 {
-    $connexion = mysqli_connect("localhost", "nicolas", "Nicoju13", "nicolas-camilloni_module-connexion");
-    $requete = "SELECT * FROM utilisateurs WHERE login='".$_SESSION['login']."'";
+    $connexion = mysqli_connect("db5000890310.hosting-data.io", "dbu594451", "S26n6j29p20m13!", "dbs781078");
+    $requete = "SELECT * FROM moduleconnexion_utilisateurs WHERE login='".$_SESSION['login']."'";
     $query = mysqli_query($connexion, $requete);
     $resultat = mysqli_fetch_assoc($query);
 
@@ -157,7 +157,7 @@ else
 
     if(isset($_POST['modifier']))
     {
-        $requeteupdate = "UPDATE utilisateurs SET login='".$_POST['login']."', prenom='".$_POST['prenom']."' , nom='".$_POST['nom']."' WHERE login = '".$_SESSION['login']."'";
+        $requeteupdate = "UPDATE moduleconnexion_utilisateurs SET login='".$_POST['login']."', prenom='".$_POST['prenom']."' , nom='".$_POST['nom']."' WHERE login = '".$_SESSION['login']."'";
 
         if($resultat['login'] != $_POST['login'])
         {
@@ -181,7 +181,7 @@ else
             {
             $pwd=$_POST['password'];
             $pwd=password_hash($pwd,PASSWORD_BCRYPT,array('cost'=>12,));
-            $requeteupdate = "UPDATE utilisateurs SET password='".$pwd."' WHERE login = '".$_SESSION['login']."'";
+            $requeteupdate = "UPDATE moduleconnexion_utilisateurs SET password='".$pwd."' WHERE login = '".$_SESSION['login']."'";
             mysqli_query($connexion,$requeteupdate);
             header('Location: profil.php');
             }
